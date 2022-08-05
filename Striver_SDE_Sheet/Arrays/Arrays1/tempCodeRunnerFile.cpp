@@ -1,1 +1,0 @@
-subArray.clear();
