@@ -1,0 +1,26 @@
+class Solution {
+public:
+    vector<int>dp;
+    int help(vector<int> &nums, int t, int n){
+        if(t==0)
+            return 1;
+        int ans=0;
+        
+        if(dp[t]!=-1)
+            return dp[t];
+        
+        for(int i=0; i<n; i++){
+            if(nums[i]<=t){
+                ans+=help(nums, t-nums[i], n);
+            }
+        }
+        return dp[t]=ans;
+    }
+    int combinationSum4(vector<int>& nums, int target) {
+        int n=nums.size();
+        dp.resize(target+1, -1);
+        return help(nums, target, n);
+    
+        
+    }
+};
